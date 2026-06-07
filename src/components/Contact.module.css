@@ -1,0 +1,89 @@
+.contactSection {
+  padding: 120px 0 0;
+  position: relative;
+  background-color: var(--bg-primary);
+}
+
+.header {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.header h2 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto 60px;
+}
+
+.contactCard {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 32px;
+  background: var(--bg-secondary);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.iconWrapper {
+  color: var(--accent-primary);
+  background: rgba(59, 130, 246, 0.1);
+  padding: 16px;
+  border-radius: 50%;
+}
+
+.contactName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.contactValue {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.resumeSection {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.resumeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  color: white;
+  font-weight: 600;
+  border-radius: 12px;
+  font-size: 1.125rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resumeBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+.footer {
+  border-top: 1px solid var(--border-color);
+  padding: 40px 0;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+}

@@ -1,0 +1,84 @@
+.impactSection {
+  padding: var(--section-padding) 0;
+  position: relative;
+  background: var(--bg-primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ─── Card base ─────────────────────────────────── */
+.card {
+  position: relative;
+  padding: 36px 28px 32px;
+  border-radius: var(--radius-card);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+/* ─── Shimmer line ──────────────────────────────── */
+.shimmerLine {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+}
+
+/* ─── Colour variants ───────────────────────────── */
+.card_blue:hover { box-shadow: 0 24px 48px rgba(59,130,246,0.12); }
+.card_blue .shimmerLine { background: linear-gradient(90deg, transparent, rgba(59,130,246,0.6), transparent); }
+.card_blue .value { color: #60a5fa; }
+
+.card_purple:hover { box-shadow: 0 24px 48px rgba(139,92,246,0.12); }
+.card_purple .shimmerLine { background: linear-gradient(90deg, transparent, rgba(139,92,246,0.6), transparent); }
+.card_purple .value { color: #a78bfa; }
+
+.card_emerald:hover { box-shadow: 0 24px 48px rgba(16,185,129,0.12); }
+.card_emerald .shimmerLine { background: linear-gradient(90deg, transparent, rgba(16,185,129,0.6), transparent); }
+.card_emerald .value { color: #34d399; }
+
+.card_amber:hover { box-shadow: 0 24px 48px rgba(245,158,11,0.12); }
+.card_amber .shimmerLine { background: linear-gradient(90deg, transparent, rgba(245,158,11,0.6), transparent); }
+.card_amber .value { color: #fbbf24; }
+
+/* ─── Text ──────────────────────────────────────── */
+.value {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 10px;
+  letter-spacing: -0.03em;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.sub {
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
+/* ─── Responsive ────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,88 @@
+.expertiseSection {
+  padding: 120px 0;
+  position: relative;
+  background-color: var(--bg-secondary);
+}
+
+.header {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.header h2 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  display: inline-block;
+}
+
+.skillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 80px;
+}
+
+.skillCard {
+  padding: 16px 24px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  cursor: default;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.skillCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.15);
+  background: linear-gradient(145deg, rgba(59, 130, 246, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.techStackHeader {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.subTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.techCard {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-tertiary);
+}
+
+.techCategory {
+  font-size: 1.125rem;
+  color: var(--accent-primary);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.techItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.techItem {
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}

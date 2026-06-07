@@ -1,0 +1,186 @@
+.systemSection {
+  padding: 120px 0;
+  position: relative;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.header {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.header h2 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+.architectureWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.layer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.layerHorizontal {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: var(--bg-tertiary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  min-width: 140px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2;
+}
+
+.node:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.icon {
+  color: var(--text-primary);
+}
+
+.node span {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Specialized Nodes */
+.gatewayNode { border-color: rgba(168, 85, 247, 0.4); }
+.gatewayNode .icon { color: #a855f7; }
+
+.tradingNode { border-color: rgba(59, 130, 246, 0.4); }
+.tradingNode .icon { color: #3b82f6; }
+
+.kafkaNode { border-color: rgba(245, 158, 11, 0.4); }
+.kafkaNode .icon { color: #f59e0b; }
+
+.redisNode { border-color: rgba(239, 68, 68, 0.4); }
+.redisNode .icon { color: #ef4444; }
+
+.blockchainNode { border-color: rgba(16, 185, 129, 0.4); }
+.blockchainNode .icon { color: #10b981; }
+
+/* Connectors and Data Flow */
+.connector {
+  height: 40px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 8px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.connectorMulti {
+  height: 40px;
+  width: 60%;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  border-right: 2px solid rgba(255, 255, 255, 0.1);
+  margin: 8px 0;
+  position: relative;
+}
+
+.connectorMulti::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-50%);
+}
+
+.dataFlow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px var(--accent-primary);
+  animation: flowDown 2s infinite;
+}
+
+.dataFlowReverse {
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  width: 6px;
+  height: 6px;
+  background: var(--accent-secondary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-secondary);
+  animation: flowUp 2s infinite 1s;
+}
+
+.connectorMulti .dataFlow:nth-child(1) { left: 0; animation-delay: 0.5s; }
+.connectorMulti .dataFlow:nth-child(2) { left: 50%; animation-delay: 1s; }
+.connectorMulti .dataFlow:nth-child(3) { left: 100%; animation-delay: 1.5s; }
+
+@keyframes flowDown {
+  0% { top: 0; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes flowUp {
+  0% { bottom: 0; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { bottom: 100%; opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .layerHorizontal {
+    flex-direction: column;
+    align-items: center;
+  }
+  .connectorMulti {
+    width: 2px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .connectorMulti::after { display: none; }
+}

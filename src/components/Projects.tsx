@@ -1,0 +1,203 @@
+'use client';
+import React from 'react';
+import { motion, useInView } from 'framer-motion';
+import styles from './Projects.module.css';
+
+// ─── Project data ──────────────────────────────────────────────────
+const projects = [
+  {
+    number: '01',
+    title: 'Crypto Exchange Infrastructure',
+    description: 'Built a production-grade exchange backend powering trading, wallets, settlements, and user management for 100K+ users.',
+    tags: ['NestJS', 'Kafka', 'Redis', 'PostgreSQL', 'MSSQL', 'Docker'],
+    visual: 'architecture',
+  },
+  {
+    number: '02',
+    title: 'Real-Time Trading Engine',
+    description: 'Designed a matching engine handling 6000+ trade executions per minute with sub-10ms p99 latency.',
+    tags: ['TypeScript', 'Redis', 'Kafka', 'Node.js', 'MSSQL'],
+    visual: 'trading',
+  },
+  {
+    number: '03',
+    title: 'Multi-Chain Blockchain Infra',
+    description: 'Integrated multiple EVM and custom blockchain networks for deposits, withdrawals, confirmations, and monitoring.',
+    tags: ['EVM', 'Liminal', 'Blockchain', 'Node.js', 'TypeScript'],
+    visual: 'blockchain',
+  },
+  {
+    number: '04',
+    title: 'Admin Monitoring Platform',
+    description: 'Built an RBAC admin platform with real-time alerts, dashboards, and operational tooling for platform operations.',
+    tags: ['NestJS', 'Azure', 'RBAC', 'WebSocket', 'Redis'],
+    visual: 'dashboard',
+  },
+];
+
+// ─── Visual: Architecture flow ─────────────────────────────────────
+function ArchitectureFlow() {
+  const nodes = ['Client', 'Gateway', 'Services', 'Kafka', 'DB'];
+  return (
+    <div className={styles.archFlow}>
+      {nodes.map((n, i) => (
+        <React.Fragment key={n}>
+          <div className={`${styles.archNode} ${n === 'Kafka' ? styles.archNodeKafka : ''}`}>
+            {n}
+          </div>
+          {i < nodes.length - 1 && (
+            <div className={styles.archArrow}>
+              <div className={styles.archDot} style={{ animationDelay: `${i * 0.4}s` }} />
+            </div>
+          )}
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}
+
+// ─── Visual: Trading Engine order book ─────────────────────────────
+function TradingVisual() {
+  return (
+    <div className={styles.tradingWrap}>
+      <div className={styles.orderBook}>
+        <div className={styles.obHeader}>Order Book</div>
+        <div className={styles.obRows}>
+          {[90, 75, 60, 85, 70, 55].map((w, i) => (
+            <div key={i} className={`${styles.obRow} ${i < 3 ? styles.obSell : styles.obBuy}`}>
+              <span className={styles.obBar} style={{ width: `${w}%` }} />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className={styles.matchBox}>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+        </svg>
+        <span>Matching</span>
+      </div>
+    </div>
+  );
+}
+
+// ─── Visual: Blockchain network ─────────────────────────────────────
+function BlockchainVisual() {
+  return (
+    <div className={styles.blockchainWrap}>
+      <svg viewBox="0 0 240 100" width="100%" className={styles.blockchainSvg}>
+        {/* Chain nodes */}
+        {[30, 80, 130, 180, 210].map((cx, i) => (
+          <g key={i}>
+            <circle cx={cx} cy="50" r="14" fill="none" stroke="rgba(16,185,129,0.4)" strokeWidth="1.5" />
+            <circle cx={cx} cy="50" r="8" fill="rgba(16,185,129,0.15)" stroke="rgba(16,185,129,0.8)" strokeWidth="1.5" />
+            {/* pulse ring */}
+            <circle cx={cx} cy="50" r="14" fill="none" stroke="rgba(16,185,129,0.3)" strokeWidth="1">
+              <animate attributeName="r" from="14" to="22" dur={`${1.5 + i * 0.3}s`} repeatCount="indefinite" />
+              <animate attributeName="opacity" from="0.5" to="0" dur={`${1.5 + i * 0.3}s`} repeatCount="indefinite" />
+            </circle>
+          </g>
+        ))}
+        {/* Connecting lines */}
+        {[30, 80, 130, 180].map((cx, i) => (
+          <line key={i} x1={cx + 14} y1="50" x2={[80,130,180,210][i] - 14} y2="50" stroke="rgba(16,185,129,0.25)" strokeWidth="1" strokeDasharray="4 2" />
+        ))}
+        {/* Animated dot moving along chain */}
+        <circle r="4" fill="rgba(16,185,129,0.9)">
+          <animateMotion dur="3s" repeatCount="indefinite" path="M 30 50 L 210 50" />
+        </circle>
+      </svg>
+      <div className={styles.chainLabels}>
+        {['EVM', 'BTC', 'TRON', 'Polygon', 'Custom'].map((l) => (
+          <span key={l} className={styles.chainLabel}>{l}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── Visual: Admin dashboard ─────────────────────────────────────────
+function DashboardVisual() {
+  return (
+    <div className={styles.dashWrap}>
+      <div className={styles.dashGrid}>
+        <div className={styles.dashWidget}>
+          <div className={styles.dashWidgetLabel}>Alerts</div>
+          <div className={styles.alertDots}>
+            <span className={styles.alertDot} style={{ background: '#ef4444' }} />
+            <span className={styles.alertDot} style={{ background: '#f59e0b' }} />
+            <span className={styles.alertDot} style={{ background: '#10b981' }} />
+          </div>
+        </div>
+        <div className={styles.dashWidget}>
+          <div className={styles.dashWidgetLabel}>Throughput</div>
+          <div className={styles.miniChart}>
+            {[30, 55, 40, 70, 65, 80, 72].map((h, i) => (
+              <div key={i} className={styles.chartBar} style={{ height: `${h}%` }} />
+            ))}
+          </div>
+        </div>
+        <div className={styles.dashWidget}>
+          <div className={styles.dashWidgetLabel}>CPU</div>
+          <div className={styles.cpuBar}><div className={styles.cpuFill} /></div>
+          <div className={styles.dashValue}>42%</div>
+        </div>
+        <div className={styles.dashWidget}>
+          <div className={styles.dashWidgetLabel}>Latency</div>
+          <div className={styles.dashBig} style={{ color: '#34d399' }}>9ms</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Projects section ────────────────────────────────────────────────
+export default function Projects() {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  return (
+    <section className={styles.projectsSection} id="projects">
+      <div className="container" ref={ref}>
+        <motion.div
+          className={styles.header}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="section-label">03 // Projects</span>
+          <h2 className="text-gradient">Featured Projects</h2>
+        </motion.div>
+
+        <div className={styles.projectsGrid}>
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              className={styles.projectCard}
+              initial={{ opacity: 0, y: 36 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className={styles.cardVisual}>
+                {project.visual === 'architecture' && <ArchitectureFlow />}
+                {project.visual === 'trading'      && <TradingVisual />}
+                {project.visual === 'blockchain'   && <BlockchainVisual />}
+                {project.visual === 'dashboard'    && <DashboardVisual />}
+              </div>
+
+              <div className={styles.cardContent}>
+                <span className={styles.projectNumber}>{project.number}</span>
+                <h3 className={styles.projectTitle}>{project.title}</h3>
+                <p className={styles.projectDescription}>{project.description}</p>
+                <div className={styles.tags}>
+                  {project.tags.map((tag) => (
+                    <span key={tag} className={styles.tag}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

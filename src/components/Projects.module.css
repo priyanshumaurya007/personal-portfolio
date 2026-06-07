@@ -1,0 +1,250 @@
+.projectsSection {
+  padding: var(--section-padding) 0;
+  background: var(--bg-primary);
+}
+
+.header {
+  margin-bottom: 60px;
+}
+.header h2 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+/* ─── Grid ──────────────────────────────────────── */
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* ─── Card ──────────────────────────────────────── */
+.projectCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.projectCard:hover {
+  border-color: rgba(255,255,255,0.18);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.3);
+}
+
+/* ─── Visual area ───────────────────────────────── */
+.cardVisual {
+  height: 220px;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  overflow: hidden;
+}
+
+/* ─── Card text ─────────────────────────────────── */
+.cardContent {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 10px;
+}
+.projectNumber {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-primary);
+  letter-spacing: 0.1em;
+}
+.projectTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.projectDescription {
+  color: var(--text-secondary);
+  font-size: 0.925rem;
+  line-height: 1.65;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.tag {
+  padding: 4px 10px;
+  background: rgba(59,130,246,0.08);
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--accent-primary);
+}
+
+/* ─── Architecture flow ─────────────────────────── */
+.archFlow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.archNode {
+  padding: 7px 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.archNodeKafka {
+  border-color: rgba(245,158,11,0.5);
+  color: #fbbf24;
+  background: rgba(245,158,11,0.07);
+}
+.archArrow {
+  position: relative;
+  width: 36px;
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  flex-shrink: 0;
+}
+.archDot {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  box-shadow: 0 0 6px var(--accent-primary);
+  animation: slideRight 1.8s linear infinite;
+}
+@keyframes slideRight {
+  from { left: 0; opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  to   { left: calc(100% - 6px); opacity: 0; }
+}
+
+/* ─── Trading order book ────────────────────────── */
+.tradingWrap { display: flex; align-items: center; gap: 24px; }
+.orderBook {
+  flex: 1;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 14px;
+}
+.obHeader {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  margin-bottom: 10px;
+  letter-spacing: 0.08em;
+}
+.obRows { display: flex; flex-direction: column; gap: 4px; }
+.obRow {
+  height: 10px;
+  border-radius: 3px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+}
+.obBar {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+}
+.obSell .obBar { background: rgba(239,68,68,0.4); }
+.obBuy  .obBar { background: rgba(34,197,94,0.4); }
+.matchBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-primary);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+}
+
+/* ─── Blockchain SVG ─────────────────────────────── */
+.blockchainWrap { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.blockchainSvg { max-width: 100%; overflow: visible; }
+.chainLabels { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.chainLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 3px 8px;
+  border: 1px solid rgba(16,185,129,0.25);
+  border-radius: 4px;
+  color: #34d399;
+}
+
+/* ─── Dashboard ─────────────────────────────────── */
+.dashWrap { width: 100%; }
+.dashGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.dashWidget {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.dashWidgetLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.alertDots { display: flex; gap: 6px; }
+.alertDot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  animation: alertPulse 2s infinite;
+}
+@keyframes alertPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+.miniChart { display: flex; align-items: flex-end; gap: 2px; height: 32px; }
+.chartBar {
+  flex: 1;
+  background: rgba(59,130,246,0.5);
+  border-radius: 2px 2px 0 0;
+  min-height: 4px;
+}
+.cpuBar {
+  height: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.cpuFill {
+  width: 42%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 3px;
+}
+.dashValue { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-secondary); }
+.dashBig { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; }
+
+/* ─── Responsive ────────────────────────────────── */
+@media (max-width: 840px) {
+  .projectsGrid { grid-template-columns: 1fr; }
+}
