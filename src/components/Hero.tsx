@@ -183,7 +183,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.h1 variants={itemVariants} className={styles.title}>
-            I Build Scalable<br />
+            <span className={styles.titleLine}>I Build Scalable</span>
             <Typewriter />
           </motion.h1>
 

@@ -121,7 +121,7 @@ export default function Contact() {
           <div className={styles.footerLeft}>
             <div className={styles.footerLogo}>
               <span className={styles.footerMark}>PM</span>
-              <span>Priyanshu Maurya</span>
+              <span>Priyanshu</span>
             </div>
             <p className={styles.footerTagline}>
               Backend Engineer · FinTech · Blockchain · Distributed Systems
@@ -146,7 +146,7 @@ export default function Contact() {
         </div>
 
         <div className={`container ${styles.footerBottom}`}>
-          <span>© {new Date().getFullYear()} Priyanshu Maurya. Designed &amp; Built with Next.js.</span>
+          <span>© {new Date().getFullYear()} Priyanshu. Designed &amp; Built with Next.js.</span>
           <span className={styles.footerStack}>NestJS · Kafka · Redis · Blockchain</span>
         </div>
       </footer>

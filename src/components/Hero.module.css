@@ -110,7 +110,20 @@
   line-height: 1.08;
   margin-bottom: 1.5rem;
   color: var(--text-primary);
+  /* Reserve exactly 2 lines so changing typewriter text never shifts layout */
   min-height: 2.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* First static line — always exactly 1 line height */
+.titleLine {
+  display: block;
+  height: 1.08em;
+  line-height: 1.08em;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /* ─── Typewriter ────────────────────────────────── */
@@ -120,7 +133,11 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  min-height: 1.1em;
+  /* Fixed height = exactly 1 line. Never wraps, never collapses. */
+  height: 1.1em;
+  line-height: 1.1em;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .cursor {
