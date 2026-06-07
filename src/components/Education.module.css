@@ -1,0 +1,159 @@
+.eduSection {
+  padding: var(--section-padding) 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+}
+
+.header {
+  margin-bottom: 56px;
+}
+.header h2 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+/* ─── Grid ──────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
+/* ─── Card ──────────────────────────────────────── */
+.card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.card:hover {
+  border-color: rgba(255,255,255,0.16);
+  transform: translateY(-4px);
+}
+
+/* Wide card spans full width */
+.cardWide {
+  grid-column: 1 / -1;
+}
+
+.cardIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.cardTitle {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 20px;
+}
+
+/* ─── Education ─────────────────────────────────── */
+.degree {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.institution {
+  color: var(--accent-primary);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.cgpaRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cgpaLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  padding: 4px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  letter-spacing: 0.08em;
+}
+.cgpaValue {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Certifications ────────────────────────────── */
+.certList { display: flex; flex-direction: column; gap: 14px; }
+.certItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  gap: 12px;
+}
+.certMeta { display: flex; flex-direction: column; gap: 3px; }
+.certName { font-weight: 600; font-size: 0.95rem; }
+.certIssuer { font-size: 0.8rem; color: var(--text-tertiary); }
+.certBadge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+}
+.badge_blue {
+  background: rgba(59,130,246,0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59,130,246,0.3);
+}
+.badge_amber {
+  background: rgba(245,158,11,0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245,158,11,0.3);
+}
+
+/* ─── Achievements ──────────────────────────────── */
+.achieveList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.achieveItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.checkmark {
+  color: var(--accent-emerald);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ─── Responsive ────────────────────────────────── */
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+  .cardWide { grid-column: auto; }
+  .achieveList { grid-template-columns: 1fr; }
+}

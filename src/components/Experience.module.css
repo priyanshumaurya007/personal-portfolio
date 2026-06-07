@@ -1,12 +1,12 @@
 .experienceSection {
-  padding: 120px 0;
+  padding: var(--section-padding) 0;
   position: relative;
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
 }
 
 .header {
   margin-bottom: 60px;
-  text-align: center;
 }
 
 .header h2 {

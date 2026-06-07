@@ -1,89 +1,209 @@
 .contactSection {
-  padding: 120px 0 0;
+  padding-top: var(--section-padding);
+  background: var(--bg-primary);
   position: relative;
-  background-color: var(--bg-primary);
 }
 
-.header {
-  margin-bottom: 60px;
-  text-align: center;
+/* ─── Gradient separator ────────────────────────── */
+.gradientLine {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-primary), var(--accent-secondary), transparent);
+  opacity: 0.4;
+  margin-bottom: var(--section-padding);
 }
 
-.header h2 {
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  font-weight: 700;
-  display: inline-block;
+/* ─── Header ────────────────────────────────────── */
+.header { margin-bottom: 60px; }
+
+.heading {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 10px 0 20px;
+}
+
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
   margin-bottom: 16px;
 }
 
 .subtitle {
+  font-size: 1.1rem;
   color: var(--text-secondary);
-  font-size: 1.125rem;
+  max-width: 500px;
+  line-height: 1.7;
 }
 
+/* ─── Contact grid ──────────────────────────────── */
 .contactGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  max-width: 1000px;
-  margin: 0 auto 60px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
 }
 
 .contactCard {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 32px;
+  gap: 16px;
+  padding: 22px 24px;
   background: var(--bg-secondary);
-  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  transition: all 0.25s ease;
   cursor: pointer;
 }
-
-.iconWrapper {
-  color: var(--accent-primary);
-  background: rgba(59, 130, 246, 0.1);
-  padding: 16px;
-  border-radius: 50%;
+.contactCard:hover {
+  border-color: rgba(255,255,255,0.2);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.25);
 }
 
-.contactName {
-  font-size: 1.25rem;
+.cardIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cardMeta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.cardName {
   font-weight: 600;
-  margin-bottom: 4px;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+.cardValue {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.contactValue {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
+.extIcon {
+  color: var(--text-tertiary);
+  flex-shrink: 0;
 }
 
-.resumeSection {
-  text-align: center;
-  margin-bottom: 80px;
-}
-
+/* ─── Resume CTA ────────────────────────────────── */
+.resumeWrap { margin-bottom: 80px; }
 .resumeBtn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   padding: 16px 32px;
-  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-  color: white;
-  font-weight: 600;
   border-radius: 12px;
-  font-size: 1.125rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .resumeBtn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(59,130,246,0.3);
 }
 
+/* ─── Footer ────────────────────────────────────── */
 .footer {
   border-top: 1px solid var(--border-color);
-  padding: 40px 0;
-  text-align: center;
+  padding: 40px 0 32px;
+}
+
+.footerInner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.footerLeft { display: flex; flex-direction: column; gap: 8px; }
+
+.footerLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+.footerMark {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: white;
+  font-weight: 800;
+}
+.footerTagline {
+  font-size: 0.8rem;
   color: var(--text-tertiary);
+  font-family: var(--font-mono);
+}
+
+.footerNav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.footerLink {
+  padding: 6px 12px;
+  border-radius: 6px;
   font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: color 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+.footerLink:hover {
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.05);
+}
+
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+}
+.footerStack {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+/* ─── Responsive ────────────────────────────────── */
+@media (max-width: 900px) {
+  .contactGrid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .footerInner { flex-direction: column; }
+  .footerBottom { flex-direction: column; gap: 8px; text-align: center; }
 }
