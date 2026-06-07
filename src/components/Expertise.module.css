@@ -1,87 +1,185 @@
 .expertiseSection {
   padding: var(--section-padding) 0;
-  position: relative;
   background-color: var(--bg-primary);
   border-top: 1px solid var(--border-color);
 }
 
-.header {
-  margin-bottom: 60px;
-}
-
+/* ─── Header ────────────────────────────────────── */
+.header { margin-bottom: 56px; }
 .header h2 {
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 700;
   display: inline-block;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+.headerSub {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 500px;
 }
 
-.skillsGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 80px;
-}
-
-.skillCard {
-  padding: 16px 24px;
-  border-radius: 12px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  cursor: default;
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.skillCard:hover {
-  transform: translateY(-3px);
-  border-color: var(--accent-primary);
-  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.15);
-  background: linear-gradient(145deg, rgba(59, 130, 246, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
-}
-
-.techStackHeader {
-  margin-bottom: 40px;
-}
-
-.subTitle {
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.techGrid {
+/* ─── Main grid ─────────────────────────────────── */
+.mainGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  margin-bottom: 64px;
+  align-items: start;
 }
 
-.techCard {
-  padding: 24px;
+/* ─── Tab list ──────────────────────────────────── */
+.tabList {
   display: flex;
   flex-direction: column;
-  background: var(--bg-tertiary);
+  gap: 6px;
 }
 
-.techCategory {
-  font-size: 1.125rem;
-  color: var(--accent-primary);
-  margin-bottom: 16px;
+.tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: none;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+.tab:hover {
+  background: rgba(255,255,255,0.04);
+  color: var(--text-primary);
+}
+
+.tabHex {
+  font-size: 1.2rem;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+/* Active state */
+.tabActive {
+  background: rgba(255,255,255,0.05) !important;
+  color: var(--text-primary) !important;
+}
+.tab_blue.tabActive  { border-color: rgba(59,130,246,0.3); }
+.tab_purple.tabActive { border-color: rgba(139,92,246,0.3); }
+.tab_emerald.tabActive { border-color: rgba(16,185,129,0.3); }
+.tab_amber.tabActive { border-color: rgba(245,158,11,0.3); }
+
+/* Animated left border indicator */
+.tabBar {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: var(--accent-primary);
+}
+
+/* ─── Skill panel ───────────────────────────────── */
+.skillPanel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 32px;
+  min-height: 340px;
+}
+.panelInner { display: flex; flex-direction: column; gap: 24px; }
+
+.domainDesc {
+  color: var(--text-secondary);
+  font-size: 0.925rem;
+  line-height: 1.65;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* ─── Skill bars ────────────────────────────────── */
+.skillList { display: flex; flex-direction: column; gap: 16px; }
+
+.skillRow { display: flex; flex-direction: column; gap: 6px; }
+.skillMeta { display: flex; justify-content: space-between; align-items: center; }
+.skillName { font-size: 0.875rem; font-weight: 500; color: var(--text-primary); }
+.skillPct {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
   font-weight: 600;
 }
+.pct_blue    { color: #60a5fa; }
+.pct_purple  { color: #a78bfa; }
+.pct_emerald { color: #34d399; }
+.pct_amber   { color: #fbbf24; }
 
-.techItems {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+.skillBarTrack {
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.skillBarFill {
+  height: 100%;
+  border-radius: 3px;
+}
+.fill_blue    { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+.fill_purple  { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+.fill_emerald { background: linear-gradient(90deg, #10b981, #34d399); }
+.fill_amber   { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+/* ─── Full tech stack ───────────────────────────── */
+.techSection {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 36px;
+}
+.techTitle {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 28px;
 }
 
-.techItem {
-  padding: 6px 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 6px;
-  font-size: 0.875rem;
+.techGroups { display: flex; flex-direction: column; gap: 18px; }
+
+.techGroup { display: flex; align-items: flex-start; gap: 20px; }
+.techGroupLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  min-width: 90px;
+  padding-top: 5px;
+  flex-shrink: 0;
+}
+
+.pillRow { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  padding: 5px 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
   color: var(--text-secondary);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+.pill:hover {
+  background: rgba(59,130,246,0.1);
+  border-color: rgba(59,130,246,0.3);
+  color: #60a5fa;
+}
+
+/* ─── Responsive ────────────────────────────────── */
+@media (max-width: 860px) {
+  .mainGrid { grid-template-columns: 1fr; }
+  .tabList { flex-direction: row; flex-wrap: wrap; }
+  .techGroup { flex-direction: column; gap: 8px; }
 }

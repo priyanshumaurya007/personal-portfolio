@@ -110,20 +110,14 @@
   line-height: 1.08;
   margin-bottom: 1.5rem;
   color: var(--text-primary);
-  /* Reserve exactly 2 lines so changing typewriter text never shifts layout */
-  min-height: 2.2em;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 0.2em;
 }
 
-/* First static line — always exactly 1 line height */
+/* First static line */
 .titleLine {
   display: block;
-  height: 1.08em;
-  line-height: 1.08em;
-  overflow: hidden;
-  white-space: nowrap;
 }
 
 /* ─── Typewriter ────────────────────────────────── */
@@ -133,11 +127,11 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  /* Fixed height = exactly 1 line. Never wraps, never collapses. */
-  height: 1.1em;
-  line-height: 1.1em;
-  overflow: hidden;
+  /* Smaller font so even the longest phrase fits on one line */
+  font-size: clamp(1.8rem, 3.8vw, 3.2rem);
+  line-height: 1.2;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .cursor {
@@ -230,6 +224,10 @@
 
 /* ─── Responsive ────────────────────────────────── */
 @media (max-width: 768px) {
+  .title {
+    /* Reserve 3 lines on mobile since long phrases wrap */
+    min-height: 3.3em;
+  }
   .actions {
     flex-direction: column;
     width: 100%;
