@@ -120,7 +120,7 @@ export default function Contact() {
         <div className={`container ${styles.footerInner}`}>
           <div className={styles.footerLeft}>
             <div className={styles.footerLogo}>
-              <span className={styles.footerMark}>PM</span>
+              <span className={styles.footerMark}>P</span>
               <span>Priyanshu</span>
             </div>
             <p className={styles.footerTagline}>

@@ -65,7 +65,7 @@ export default function Navbar() {
         <div className={`container ${styles.inner}`}>
           {/* Logo */}
           <a href="#" className={styles.logo} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <span className={styles.logoMark}>PM</span>
+            <span className={styles.logoMark}>P</span>
             <span className={styles.logoText}>Priyanshu</span>
           </a>
 
