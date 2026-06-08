@@ -47,6 +47,12 @@
   padding: 28px;
   overflow: hidden;
 }
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
 
 /* ─── Card text ─────────────────────────────────── */
 .cardContent {
@@ -56,16 +62,35 @@
   flex-grow: 1;
   gap: 10px;
 }
+.projectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 .projectNumber {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--accent-primary);
   letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 4px;
 }
 .projectTitle {
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--text-primary);
+}
+.projectLink {
+  color: var(--text-secondary);
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+.projectLink:hover {
+  color: var(--accent-primary);
+  transform: translateY(-2px) scale(1.05);
 }
 .projectDescription {
   color: var(--text-secondary);

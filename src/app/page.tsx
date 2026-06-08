@@ -3,7 +3,6 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Impact from '../components/Impact';
 import About from '../components/About';
-import Experience from '../components/Experience';
 import Projects from '../components/Projects';
 import SystemDesign from '../components/SystemDesign';
 import Expertise from '../components/Expertise';
@@ -17,7 +16,6 @@ export default function Home() {
         <Hero />
         <Impact />
         <About />
-        <Experience />
         <Projects />
         <SystemDesign />
         <Expertise />
