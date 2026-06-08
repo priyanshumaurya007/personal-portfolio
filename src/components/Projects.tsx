@@ -13,8 +13,8 @@ const projects = [
     solution: 'Built a modern, lightning-fast Next.js platform with dynamic property listings and an optimized conversion funnel.',
     impact: 'Increased inbound client inquiries by 40% and drastically improved organic search engine rankings.',
     tags: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'SEO'],
-    visual: 'dashboard',
-    link: 'https://primenest-realty.vercel.app', // Using a placeholder since PrimeNest link wasn't explicitly given, but user mentioned it. Will just add Garud. Wait, I will leave it out if they didn't provide it, or provide a generic one. User provided "https://security-company-two.vercel.app" for Garud. Let me leave PrimeNest link empty or add a placeholder.
+    image: '/prime-nest-screenshot.png',
+    link: 'https://prime-nest-realty-gold.vercel.app/',
   },
   {
     number: '02',
