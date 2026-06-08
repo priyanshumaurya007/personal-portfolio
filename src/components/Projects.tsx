@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import styles from './Projects.module.css';
 
 // ─── Project data ──────────────────────────────────────────────────
@@ -169,16 +169,14 @@ function DashboardVisual() {
 
 // ─── Projects section ────────────────────────────────────────────────
 export default function Projects() {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
   return (
     <section className={styles.projectsSection} id="projects">
-      <div className="container" ref={ref}>
+      <div className="container">
         <motion.div
           className={styles.header}
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
           <span className="section-label">04 // Case Studies</span>
@@ -191,7 +189,8 @@ export default function Projects() {
               key={index}
               className={styles.projectCard}
               initial={{ opacity: 0, y: 36 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
             >
               <div className={styles.cardVisual}>
@@ -205,9 +204,9 @@ export default function Projects() {
                 <span className={styles.projectNumber}>{project.number}</span>
                 <h3 className={styles.projectTitle}>{project.title}</h3>
                 <div className={styles.projectDescription}>
-                  <p><strong>Problem:</strong> {project.problem}</p>
-                  <p><strong>Solution:</strong> {project.solution}</p>
-                  <p><strong>Impact:</strong> <span style={{ color: 'var(--accent-primary)' }}>{project.impact}</span></p>
+                  <div style={{ marginBottom: '8px' }}><strong>Problem:</strong> {project.problem}</div>
+                  <div style={{ marginBottom: '8px' }}><strong>Solution:</strong> {project.solution}</div>
+                  <div><strong>Impact:</strong> <span style={{ color: 'var(--accent-primary)' }}>{project.impact}</span></div>
                 </div>
                 <div className={styles.tags}>
                   {project.tags.map((tag) => (
