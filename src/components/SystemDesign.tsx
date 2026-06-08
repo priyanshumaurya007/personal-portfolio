@@ -10,9 +10,9 @@ const layers = [
     title: 'Client Layer',
     color: 'slate',
     nodes: [
-      { id: 'web', label: 'Web App', icon: '🌐', desc: 'React / Next.js' },
-      { id: 'mobile', label: 'Mobile App', icon: '📱', desc: 'iOS & Android' },
-      { id: 'admin', label: 'Admin Panel', icon: '🖥️', desc: 'RBAC Dashboard' },
+      { id: 'web', label: 'Web App', icon: '🌐', desc: 'React / Next.js SPA & SSR' },
+      { id: 'mobile', label: 'Mobile App', icon: '📱', desc: 'iOS & Android Native' },
+      { id: 'admin', label: 'Admin Panel', icon: '🖥️', desc: 'Analytics & Operations Dashboard' },
     ],
   },
   {
@@ -20,8 +20,8 @@ const layers = [
     title: 'API Gateway',
     color: 'blue',
     nodes: [
+      { id: 'cdn', label: 'Edge CDN', icon: '🌍', desc: 'Fast Global Content Delivery' },
       { id: 'gateway', label: 'API Gateway', icon: '⚡', desc: 'Rate limiting · Auth · Routing' },
-      { id: 'ws', label: 'WebSocket Hub', icon: '🔌', desc: 'Real-time feed · Live orderbook' },
     ],
   },
   {
@@ -29,10 +29,10 @@ const layers = [
     title: 'Microservices',
     color: 'purple',
     nodes: [
-      { id: 'auth', label: 'Auth Service', icon: '🔐', desc: 'JWT · MFA · Sessions' },
-      { id: 'trading', label: 'Trading Engine', icon: '📊', desc: '6000+ trades/min matching' },
-      { id: 'wallet', label: 'Wallet Service', icon: '💳', desc: 'Multi-chain · Custody' },
-      { id: 'settle', label: 'Settlement', icon: '✅', desc: 'Atomic · Reconciliation' },
+      { id: 'auth', label: 'Auth Service', icon: '🔐', desc: 'JWT · MFA · Strict RBAC' },
+      { id: 'core', label: 'Core Backend', icon: '⚙️', desc: 'Business logic · REST/GraphQL API' },
+      { id: 'worker', label: 'Worker Node', icon: '⏳', desc: 'Background jobs · Async processing' },
+      { id: 'integration', label: 'Integrations', icon: '🔌', desc: 'Third-party APIs · Webhooks' },
     ],
   },
   {
@@ -40,18 +40,18 @@ const layers = [
     title: 'Event Bus & Cache',
     color: 'amber',
     nodes: [
-      { id: 'kafka', label: 'Kafka', icon: '📨', desc: 'Event streaming · Async processing' },
-      { id: 'redis', label: 'Redis', icon: '⚡', desc: 'Cache · Session · Pub/Sub' },
+      { id: 'broker', label: 'Message Broker', icon: '📨', desc: 'Event streaming (Kafka / RabbitMQ)' },
+      { id: 'redis', label: 'Redis', icon: '⚡', desc: 'In-memory cache · Pub/Sub' },
     ],
   },
   {
     id: 'data',
-    title: 'Data & Blockchain',
+    title: 'Data Layer',
     color: 'emerald',
     nodes: [
-      { id: 'mssql', label: 'MSSQL / PostgreSQL', icon: '🗄️', desc: 'Primary transactional DB' },
-      { id: 'mongo', label: 'MongoDB', icon: '🍃', desc: 'Logs · Analytics · Events' },
-      { id: 'chain', label: 'Blockchain Networks', icon: '🔗', desc: 'EVM · BTC · TRON · Polygon' },
+      { id: 'sql', label: 'Relational DB', icon: '🗄️', desc: 'Primary ACID transactional data' },
+      { id: 'nosql', label: 'NoSQL / Search', icon: '🍃', desc: 'Analytics · Logs · Fast Search' },
+      { id: 'storage', label: 'Object Storage', icon: '📦', desc: 'Secure media & document storage' },
     ],
   },
 ];
@@ -113,7 +113,7 @@ function Node({ node, color, active, onClick }: {
 export default function SystemDesign() {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
-  const [activeNode, setActiveNode] = useState<string | null>('trading');
+  const [activeNode, setActiveNode] = useState<string | null>('core');
 
   const allNodes = layers.flatMap((l) => l.nodes.map((n) => ({ ...n, color: l.color })));
   const activeData = allNodes.find((n) => n.id === activeNode);
@@ -182,11 +182,11 @@ export default function SystemDesign() {
               <div className={styles.statsList}>
                 {[
                   { label: 'API p99 Latency', value: '10ms', color: 'blue' },
-                  { label: 'Peak Throughput', value: '6K/min', color: 'purple' },
-                  { label: 'DB Load Reduction', value: '95%', color: 'emerald' },
-                  { label: 'Uptime SLA', value: '99.9%', color: 'amber' },
-                  { label: 'Blockchain Networks', value: '5+', color: 'blue' },
-                  { label: 'Active Users', value: '100K+', color: 'purple' },
+                  { label: 'Uptime SLA', value: '99.99%', color: 'purple' },
+                  { label: 'Caching Hit Rate', value: '95%', color: 'emerald' },
+                  { label: 'Global Edge CDN', value: 'Active', color: 'amber' },
+                  { label: 'Security Standard', value: 'Enterprise', color: 'blue' },
+                  { label: 'Scalability', value: '100K+', color: 'purple' },
                 ].map((s) => (
                   <div key={s.label} className={styles.statRow}>
                     <span className={styles.statLabel}>{s.label}</span>
