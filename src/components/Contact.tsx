@@ -28,9 +28,9 @@ const contacts = [
   },
   {
     name: 'LinkedIn',
-    value: 'linkedin.com/in/priyanshumaurya007',
+    value: 'linkedin.com/in/priyanshumaurya',
     icon: <LinkedinIcon />,
-    link: 'https://www.linkedin.com/in/priyanshumaurya007/',
+    link: 'https://www.linkedin.com/in/priyanshumaurya/',
     color: '#0077b5',
   },
   {

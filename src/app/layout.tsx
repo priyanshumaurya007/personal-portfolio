@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Priyanshu | Backend Engineer — FinTech & Blockchain',
+  title: 'Priyanshu | Backend Engineer & Web Consultant',
   description:
-    'Backend Engineer specializing in high-performance financial systems, real-time trading engines, distributed architectures, and multi-chain blockchain infrastructure. Building systems at scale — 100K+ users, 6000+ trades/min.',
+    'Full-Stack Developer and Backend Engineer specializing in high-performance web applications, B2B SaaS platforms, and enterprise-grade distributed architectures.',
   keywords: [
-    'Backend Engineer', 'Distributed Systems', 'FinTech', 'Blockchain',
-    'Microservices', 'Node.js', 'NestJS', 'Kafka', 'Redis', 'Trading Engine',
-    'Crypto Exchange', 'Real-Time Systems', 'Cloud Architecture'
+    'Backend Engineer', 'Full-Stack Developer', 'Web Consultant', 'React', 'Next.js',
+    'Microservices', 'Node.js', 'NestJS', 'Architecture', 'SaaS',
+    'B2B Solutions', 'Web Development', 'Cloud Architecture'
   ],
   authors: [{ name: 'Priyanshu' }],
   creator: 'Priyanshu',
