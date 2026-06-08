@@ -7,30 +7,47 @@ import styles from './Projects.module.css';
 const projects = [
   {
     number: '01',
-    title: 'Crypto Exchange Infrastructure',
-    description: 'Built a production-grade exchange backend powering trading, wallets, settlements, and user management for 100K+ users.',
+    title: 'Crypto Exchange Architecture',
+    problem: 'High latency and database bottlenecks during peak trading periods were causing dropped requests.',
+    solution: 'Implemented Redis caching, connection pooling, and optimized queries to relieve database load.',
+    impact: 'Reduced API latency from 150ms to 10ms, easily scaling to handle 100K+ concurrent users.',
     tags: ['NestJS', 'Kafka', 'Redis', 'PostgreSQL', 'MSSQL', 'Docker'],
     visual: 'architecture',
   },
   {
     number: '02',
-    title: 'Real-Time Trading Engine',
-    description: 'Designed a matching engine handling 6000+ trade executions per minute with sub-10ms p99 latency.',
-    tags: ['TypeScript', 'Redis', 'Kafka', 'Node.js', 'MSSQL'],
-    visual: 'trading',
-  },
-  {
-    number: '03',
-    title: 'Multi-Chain Blockchain Infra',
-    description: 'Integrated multiple EVM and custom blockchain networks for deposits, withdrawals, confirmations, and monitoring.',
+    title: 'Blockchain Deposit System',
+    problem: 'Manual, slow verification of cross-chain deposits was causing terrible user experience.',
+    solution: 'Integrated Liminal Custody for automated multi-chain (EVM, BTC, TRON) tracking and settlement.',
+    impact: 'Achieved 100% automated settlement with zero dropped events and instant user balance updates.',
     tags: ['EVM', 'Liminal', 'Blockchain', 'Node.js', 'TypeScript'],
     visual: 'blockchain',
   },
   {
+    number: '03',
+    title: 'Real-Time Trading Platform',
+    problem: 'Order processing could not keep up with market volatility and high-frequency traders.',
+    solution: 'Built an event-driven architecture using Kafka for asynchronous, non-blocking order processing.',
+    impact: 'Scaled throughput to 6000+ trades/minute with sub-10ms p99 latency and guaranteed execution.',
+    tags: ['TypeScript', 'Redis', 'Kafka', 'Node.js', 'MSSQL'],
+    visual: 'trading',
+  },
+  {
     number: '04',
-    title: 'Admin Monitoring Platform',
-    description: 'Built an RBAC admin platform with real-time alerts, dashboards, and operational tooling for platform operations.',
+    title: 'Multi-Tenant SaaS Backend',
+    problem: 'Monolithic architecture was hindering rapid feature rollout and new enterprise client onboarding.',
+    solution: 'Designed modular microservices with strict RBAC, MS WOPI integration, and tenant isolation.',
+    impact: 'Enabled rapid onboarding of 5+ enterprise clients with total data security and isolation.',
     tags: ['NestJS', 'Azure', 'RBAC', 'WebSocket', 'Redis'],
+    visual: 'dashboard',
+  },
+  {
+    number: '05',
+    title: 'Business Website Development',
+    problem: 'Local business was struggling with digital presence, SEO, and lead generation.',
+    solution: 'Developed a modern, lightning-fast Next.js web application tailored for conversion optimization.',
+    impact: 'Significantly increased organic traffic and improved the inbound lead conversion rate.',
+    tags: ['Next.js', 'React', 'TypeScript', 'SEO', 'Framer Motion'],
     visual: 'dashboard',
   },
 ];
@@ -164,8 +181,8 @@ export default function Projects() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-label">03 // Projects</span>
-          <h2 className="text-gradient">Featured Projects</h2>
+          <span className="section-label">04 // Case Studies</span>
+          <h2 className="text-gradient">Featured Work & Impact</h2>
         </motion.div>
 
         <div className={styles.projectsGrid}>
@@ -187,7 +204,11 @@ export default function Projects() {
               <div className={styles.cardContent}>
                 <span className={styles.projectNumber}>{project.number}</span>
                 <h3 className={styles.projectTitle}>{project.title}</h3>
-                <p className={styles.projectDescription}>{project.description}</p>
+                <div className={styles.projectDescription}>
+                  <p><strong>Problem:</strong> {project.problem}</p>
+                  <p><strong>Solution:</strong> {project.solution}</p>
+                  <p><strong>Impact:</strong> <span style={{ color: 'var(--accent-primary)' }}>{project.impact}</span></p>
+                </div>
                 <div className={styles.tags}>
                   {project.tags.map((tag) => (
                     <span key={tag} className={styles.tag}>{tag}</span>

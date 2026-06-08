@@ -95,10 +95,10 @@ function ParticleCanvas() {
 
 // ─── Typewriter ─────────────────────────────────────────────────────
 const PHRASES = [
-  'Financial Infrastructure',
-  'Trading Systems',
-  'Blockchain Platforms',
-  'Distributed Systems',
+  'Backend Systems',
+  'Trading Infrastructure',
+  'SaaS Platforms',
+  'Business Websites',
 ];
 
 function Typewriter() {
@@ -179,7 +179,7 @@ export default function Hero() {
         >
           <motion.div variants={itemVariants} className={styles.badge}>
             <span className={styles.pulseDot} />
-            <span className="mono">Bengaluru, India · Available for opportunities</span>
+            <span className="mono">Available for New Projects</span>
           </motion.div>
 
           <motion.h1 variants={itemVariants} className={styles.title}>
@@ -188,42 +188,28 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p variants={itemVariants} className={styles.subtitle}>
-            Backend Engineer focused on distributed systems, crypto exchanges, real-time trading engines, blockchain integrations, and cloud-native architectures.
+            I help startups, FinTechs, and growing businesses build high-performance, fault-tolerant infrastructure. From real-time trading engines to high-converting business websites—I deliver reliable software that scales.
           </motion.p>
 
           <motion.div variants={itemVariants} className={styles.actions}>
             <motion.a
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              href="#projects"
-              onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
               className={`${styles.btn} ${styles.btnPrimary}`}
             >
-              View Projects
+              Schedule a Strategy Call
               <ArrowRight size={18} />
             </motion.a>
 
             <motion.a
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${styles.btn} ${styles.btnSecondary}`}
-            >
-              <Download size={18} />
-              Resume
-            </motion.a>
-
-            <motion.a
-              whileHover={{ scale: 1.04, y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              href="#contact"
-              onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
+              href="/projects"
               className={`${styles.btn} ${styles.btnGhost}`}
             >
-              <Mail size={18} />
-              Contact
+              Explore Services
             </motion.a>
           </motion.div>
 

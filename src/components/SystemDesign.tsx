@@ -129,9 +129,9 @@ export default function SystemDesign() {
           transition={{ duration: 0.6 }}
         >
           <span className="section-label">05 // Architecture</span>
-          <h2 className="text-gradient">System Architecture</h2>
+          <h2 className="text-gradient">How I Build Systems</h2>
           <p className={styles.subtitle}>
-            How a production crypto exchange is built — from client requests to blockchain confirmations.
+            Enterprise-grade architecture designed for scale, fault tolerance, and high availability.
             <span className={styles.subtitleHint}> Click any node to explore.</span>
           </p>
         </motion.div>

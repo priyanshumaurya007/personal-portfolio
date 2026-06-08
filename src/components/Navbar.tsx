@@ -4,11 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Navbar.module.css';
 
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Why Me', href: '#about' },
+  { label: 'Services', href: '#expertise' },
+  { label: 'Case Studies', href: '#projects' },
   { label: 'Architecture', href: '#system-design' },
-  { label: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar() {
@@ -92,12 +91,10 @@ export default function Navbar() {
           {/* CTA + Hamburger */}
           <div className={styles.right}>
             <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:priyanshumaurya007@gmail.com"
               className={styles.ctaBtn}
             >
-              Resume
+              Book a Call
             </a>
             <button
               className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
@@ -139,8 +136,8 @@ export default function Navbar() {
                 </motion.li>
               ))}
               <motion.li initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
-                <a href="/resume.pdf" target="_blank" className={styles.mobileCta}>
-                  Download Resume
+                <a href="mailto:priyanshumaurya007@gmail.com" className={styles.mobileCta}>
+                  Book a Strategy Call
                 </a>
               </motion.li>
             </ul>

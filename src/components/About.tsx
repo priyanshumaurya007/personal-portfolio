@@ -5,12 +5,12 @@ import { Server, Zap, Database, Activity, GitBranch, Layers } from 'lucide-react
 import styles from './About.module.css';
 
 const domains = [
-  { name: 'Cryptocurrency Exchanges', icon: <Activity size={24} /> },
-  { name: 'Trading Engines', icon: <Zap size={24} /> },
-  { name: 'Blockchain Infrastructure', icon: <Layers size={24} /> },
-  { name: 'Distributed Systems', icon: <Server size={24} /> },
-  { name: 'Event-Driven Architectures', icon: <GitBranch size={24} /> },
-  { name: 'High-Concurrency Apps', icon: <Database size={24} /> },
+  { name: '4+ Years Production Experience', icon: <Server size={24} /> },
+  { name: 'Millions of TXs Processed', icon: <Activity size={24} /> },
+  { name: 'Zero-Downtime Deployments', icon: <Zap size={24} /> },
+  { name: 'Enterprise Grade Security', icon: <Database size={24} /> },
+  { name: 'Scalable Cloud Architectures', icon: <Layers size={24} /> },
+  { name: 'Reliable Technical Partner', icon: <GitBranch size={24} /> },
 ];
 
 export default function About() {
@@ -26,8 +26,8 @@ export default function About() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-label">01 // About</span>
-          <h2 className="text-gradient">Beyond CRUD APIs</h2>
+          <span className="section-label">01 // Why Work With Me</span>
+          <h2 className="text-gradient">Engineering for Business Outcomes</h2>
         </motion.div>
 
         <div className={styles.content}>
@@ -38,10 +38,10 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p className={styles.paragraph}>
-              I specialize in building systems where performance, reliability, and scalability matter.
+              I don&apos;t just write code; I solve complex business problems.
             </p>
             <p className={styles.paragraph}>
-              I enjoy solving challenging engineering problems involving throughput optimization, fault tolerance, caching strategies, and real-time financial workflows. My focus is on robust backend architectures that can handle massive scale without compromising on latency or data integrity.
+              Whether you need a fault-tolerant financial engine capable of thousands of trades per minute, or a digital storefront that drives revenue—I bring enterprise-grade engineering to your project. I focus on delivering reliable, scalable software that lets you focus on growing your business instead of managing technical debt.
             </p>
             
             <div className={styles.accentLine}></div>
@@ -53,7 +53,7 @@ export default function About() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h3 className={styles.listTitle}>My experience spans:</h3>
+            <h3 className={styles.listTitle}>What I bring to the table:</h3>
             <div className={styles.domainsGrid}>
               {domains.map((domain, index) => (
                 <motion.div 

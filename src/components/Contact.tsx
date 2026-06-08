@@ -61,17 +61,17 @@ export default function Contact() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-label">07 // Contact</span>
+          <span className="section-label">06 // Contact</span>
           <h2 className={styles.heading}>
-            Let&apos;s Build Something <br />
-            <span className="text-gradient-accent">Extraordinary</span>
+            Ready to Scale Your <br />
+            <span className="text-gradient-accent">Business?</span>
           </h2>
           <div className={styles.location}>
             <MapPin size={16} />
             <span>Bengaluru, India</span>
           </div>
           <p className={styles.subtitle}>
-            Currently open to new opportunities in FinTech, crypto infrastructure, and high-scale systems.
+            Let&apos;s discuss your technical challenges. Book a free consultation to explore how we can build your next high-performance system.
           </p>
         </motion.div>
 
@@ -101,16 +101,16 @@ export default function Contact() {
           ))}
         </div>
 
-        {/* Resume CTA */}
+        {/* CTA */}
         <motion.div
           className={styles.resumeWrap}
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.resumeBtn}>
-            <Download size={18} />
-            Download Full Resume
+          <a href="mailto:priyanshumaurya007@gmail.com" className={styles.resumeBtn}>
+            <Mail size={18} />
+            Book a Free Consultation
           </a>
         </motion.div>
       </div>

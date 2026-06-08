@@ -7,62 +7,62 @@ import styles from './Expertise.module.css';
 const domains = [
   {
     id: 'backend',
-    label: 'Backend Systems',
+    label: 'Custom Backend & APIs',
     icon: '⬡',
     color: 'blue',
-    description: 'Designing high-throughput, fault-tolerant distributed services at scale.',
+    description: 'Robust, secure, and scalable microservices built with NestJS and Node.js. Designed to handle high throughput for SaaS and enterprise applications.',
     skills: [
-      { name: 'NestJS', level: 95 },
-      { name: 'Node.js', level: 92 },
-      { name: 'TypeScript', level: 93 },
-      { name: 'Express.js', level: 85 },
-      { name: 'C++', level: 70 },
-      { name: 'Python', level: 72 },
+      { name: 'Microservices Architecture', level: 95 },
+      { name: 'REST & GraphQL APIs', level: 92 },
+      { name: 'Database Design (SQL/NoSQL)', level: 90 },
+      { name: 'Authentication & Security', level: 95 },
+      { name: 'Event-Driven Systems', level: 88 },
+      { name: 'Performance Optimization', level: 90 },
     ],
   },
   {
-    id: 'trading',
-    label: 'Trading & FinTech',
+    id: 'fintech',
+    label: 'FinTech & Web3 Infra',
     icon: '⬡',
     color: 'purple',
-    description: 'Matching engines, order books, real-time execution at 6000+ trades/min.',
+    description: 'Real-time matching engines, secure multi-chain integrations, and transaction processing systems built for 99.9% uptime.',
     skills: [
-      { name: 'Order Matching Engine', level: 92 },
-      { name: 'Kafka Event Streams', level: 90 },
-      { name: 'Redis Cache Layer', level: 93 },
-      { name: 'Real-Time WebSocket', level: 88 },
-      { name: 'Settlement Systems', level: 85 },
-      { name: 'Risk Engine', level: 78 },
+      { name: 'Real-Time Trading Engines', level: 95 },
+      { name: 'Blockchain Integration', level: 90 },
+      { name: 'Payment Gateways', level: 92 },
+      { name: 'High-Frequency WebSockets', level: 90 },
+      { name: 'Custodial Wallet Systems', level: 85 },
+      { name: 'Fraud & Risk Monitoring', level: 88 },
     ],
   },
   {
-    id: 'blockchain',
-    label: 'Blockchain Infra',
+    id: 'consulting',
+    label: 'Architecture Consulting',
     icon: '⬡',
     color: 'emerald',
-    description: 'Multi-chain integrations, custodial wallets, on-chain monitoring.',
+    description: 'System design, cloud deployment strategies (Azure/GCP), and infrastructure optimization for scaling startups.',
     skills: [
-      { name: 'EVM (Ethereum)', level: 88 },
-      { name: 'Liminal Custody', level: 85 },
-      { name: 'Custom Chains', level: 80 },
-      { name: 'Smart Contracts', level: 75 },
-      { name: 'Tx Monitoring', level: 90 },
-      { name: 'Multi-sig Wallets', level: 82 },
+      { name: 'Cloud Infrastructure Setup', level: 95 },
+      { name: 'System Scalability Review', level: 90 },
+      { name: 'CI/CD Automation', level: 92 },
+      { name: 'Cost Optimization', level: 85 },
+      { name: 'Technical Roadmap Planning', level: 90 },
+      { name: 'Codebase Auditing', level: 88 },
     ],
   },
   {
-    id: 'infra',
-    label: 'Cloud & DevOps',
+    id: 'websites',
+    label: 'Business Websites',
     icon: '⬡',
     color: 'amber',
-    description: 'Cloud-native deployments, CI/CD pipelines, containerised microservices.',
+    description: 'High-performance, SEO-optimized web applications and landing pages that drive leads and conversions for local businesses.',
     skills: [
-      { name: 'Azure', level: 85 },
-      { name: 'GCP', level: 78 },
-      { name: 'Docker', level: 88 },
-      { name: 'CI/CD Pipelines', level: 85 },
-      { name: 'PostgreSQL', level: 88 },
-      { name: 'MSSQL / MongoDB', level: 82 },
+      { name: 'Next.js Web Applications', level: 95 },
+      { name: 'SEO & Performance Tuning', level: 92 },
+      { name: 'Responsive UI Design', level: 90 },
+      { name: 'CMS Integrations', level: 85 },
+      { name: 'Conversion Optimization', level: 88 },
+      { name: 'E-commerce Solutions', level: 85 },
     ],
   },
 ];
@@ -81,7 +81,6 @@ function SkillBar({ name, level, color, inView }: { name: string; level: number;
     <div className={styles.skillRow}>
       <div className={styles.skillMeta}>
         <span className={styles.skillName}>{name}</span>
-        <span className={`${styles.skillPct} ${styles[`pct_${color}`]}`}>{level}%</span>
       </div>
       <div className={styles.skillBarTrack}>
         <motion.div
@@ -112,10 +111,12 @@ export default function Expertise() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-label">04 // Expertise</span>
-          <h2 className="text-gradient">Skills & Expertise</h2>
+          <span className="section-label">03 // Services</span>
+          <h2 className="text-gradient">
+            What I Offer
+          </h2>
           <p className={styles.headerSub}>
-            Four years building systems that move money, tokens, and data at speed.
+            From robust backends to scalable infrastructure, I provide enterprise-grade technical solutions tailored to your business needs.
           </p>
         </motion.div>
 
