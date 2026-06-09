@@ -6,74 +6,73 @@ import styles from './Expertise.module.css';
 // ─── Data ──────────────────────────────────────────────────────────────
 const domains = [
   {
-    id: 'backend',
-    label: 'Custom Backend & APIs',
+    id: 'web-apps',
+    label: 'Custom Web Applications',
     icon: '⬡',
-    color: 'blue',
-    description: 'Robust, secure, and scalable microservices built with NestJS and Node.js. Designed to handle high throughput for SaaS and enterprise applications.',
+    color: 'amber',
+    description: 'Lightning-fast, beautifully designed websites that turn visitors into paying customers. Perfect for agencies, real estate, and professional services.',
     skills: [
-      { name: 'Microservices Architecture', level: 95 },
-      { name: 'REST & GraphQL APIs', level: 92 },
-      { name: 'Database Design (SQL/NoSQL)', level: 90 },
-      { name: 'Authentication & Security', level: 95 },
-      { name: 'Event-Driven Systems', level: 88 },
-      { name: 'Performance Optimization', level: 90 },
+      { name: 'Lead Generation & Conversion Funnels', level: 95 },
+      { name: 'Search Engine Optimization (SEO)', level: 92 },
+      { name: 'Mobile-First Responsive Design', level: 90 },
+      { name: 'Content Management Systems (CMS)', level: 85 },
+      { name: 'Analytics & Tracking Integration', level: 88 },
+      { name: 'Blazing Fast Page Loads', level: 95 },
     ],
   },
   {
-    id: 'fintech',
-    label: 'FinTech & Web3 Infra',
+    id: 'saas',
+    label: 'SaaS & Enterprise Software',
     icon: '⬡',
-    color: 'purple',
-    description: 'Real-time matching engines, secure multi-chain integrations, and transaction processing systems built for 99.9% uptime.',
+    color: 'blue',
+    description: 'Scalable backend systems and custom software to automate your operations and handle massive user growth without crashing.',
     skills: [
-      { name: 'Real-Time Trading Engines', level: 95 },
-      { name: 'Blockchain Integration', level: 90 },
-      { name: 'Payment Gateways', level: 92 },
-      { name: 'High-Frequency WebSockets', level: 90 },
-      { name: 'Custodial Wallet Systems', level: 85 },
-      { name: 'Fraud & Risk Monitoring', level: 88 },
+      { name: 'Custom Admin Dashboards', level: 95 },
+      { name: 'User Role & Access Management', level: 92 },
+      { name: 'Third-Party API Integrations', level: 90 },
+      { name: 'Secure Data Storage', level: 95 },
+      { name: 'Automated Business Workflows', level: 88 },
+      { name: 'High-Traffic Infrastructure', level: 90 },
     ],
   },
   {
     id: 'consulting',
-    label: 'Architecture Consulting',
+    label: 'Technical Consulting',
     icon: '⬡',
     color: 'emerald',
-    description: 'System design, cloud deployment strategies (Azure/GCP), and infrastructure optimization for scaling startups.',
+    description: 'Acting as your fractional CTO. I review your systems, identify bottlenecks, and build a technical roadmap to save you money on cloud costs.',
     skills: [
-      { name: 'Cloud Infrastructure Setup', level: 95 },
-      { name: 'System Scalability Review', level: 90 },
-      { name: 'CI/CD Automation', level: 92 },
-      { name: 'Cost Optimization', level: 85 },
-      { name: 'Technical Roadmap Planning', level: 90 },
-      { name: 'Codebase Auditing', level: 88 },
+      { name: 'Infrastructure Audits', level: 95 },
+      { name: 'Cloud Cost Reduction', level: 90 },
+      { name: 'Technical Roadmap Planning', level: 92 },
+      { name: 'Security & Compliance Reviews', level: 85 },
+      { name: 'Platform Migration Strategy', level: 90 },
+      { name: 'Team Onboarding & Tech Setup', level: 88 },
     ],
   },
   {
-    id: 'websites',
-    label: 'Business Websites',
+    id: 'fintech',
+    label: 'FinTech & Secure Platforms',
     icon: '⬡',
-    color: 'amber',
-    description: 'High-performance, SEO-optimized web applications and landing pages that drive leads and conversions for local businesses.',
+    color: 'purple',
+    description: 'Bank-grade secure platforms for financial data, trading algorithms, and real-time payment processing.',
     skills: [
-      { name: 'Next.js Web Applications', level: 95 },
-      { name: 'SEO & Performance Tuning', level: 92 },
-      { name: 'Responsive UI Design', level: 90 },
-      { name: 'CMS Integrations', level: 85 },
-      { name: 'Conversion Optimization', level: 88 },
-      { name: 'E-commerce Solutions', level: 85 },
+      { name: 'Payment Gateway Integration', level: 95 },
+      { name: 'Real-Time Data Feeds', level: 90 },
+      { name: 'Fraud & Risk Prevention', level: 92 },
+      { name: 'Compliance-Ready Security', level: 90 },
+      { name: 'Automated Reconciliation', level: 85 },
+      { name: 'High-Frequency Operations', level: 88 },
     ],
   },
 ];
 
 const techPills = [
-  { group: 'Languages', items: ['TypeScript', 'JavaScript', 'C++', 'Python'] },
-  { group: 'Backend', items: ['NestJS', 'Node.js', 'Express.js'] },
-  { group: 'Databases', items: ['MSSQL', 'PostgreSQL', 'MongoDB', 'Redis'] },
-  { group: 'Messaging', items: ['Kafka', 'Azure Event Hubs', 'WebSocket'] },
-  { group: 'Blockchain', items: ['EVM', 'Liminal', 'TRON', 'Polygon', 'Bitcoin'] },
-  { group: 'Cloud', items: ['Azure', 'GCP', 'Docker', 'CI/CD', 'Git'] },
+  { group: 'Web Presence', items: ['React', 'Next.js', 'Tailwind', 'SEO Optimization'] },
+  { group: 'Custom Software', items: ['Node.js', 'REST APIs', 'User Authentication'] },
+  { group: 'Data & Security', items: ['Secure SQL', 'Data Encryption', 'Automated Backups'] },
+  { group: 'Integrations', items: ['Stripe', 'Twilio', 'CMS', 'CRM Systems'] },
+  { group: 'Cloud Hosting', items: ['AWS', 'Azure', 'Vercel', 'Zero-Downtime Deployment'] },
 ];
 
 function SkillBar({ name, level, color, inView }: { name: string; level: number; color: string; inView: boolean }) {
@@ -97,7 +96,7 @@ function SkillBar({ name, level, color, inView }: { name: string; level: number;
 export default function Expertise() {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
-  const [active, setActive] = useState('backend');
+  const [active, setActive] = useState('web-apps');
 
   const activeDomain = domains.find((d) => d.id === active)!;
 

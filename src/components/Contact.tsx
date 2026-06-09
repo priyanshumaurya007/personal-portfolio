@@ -42,7 +42,13 @@ const contacts = [
   },
 ];
 
-const footerLinks = ['About', 'Experience', 'Projects', 'Architecture', 'Contact'];
+const footerLinks = [
+  { label: 'Why Me', href: '#about' },
+  { label: 'Services', href: '#expertise' },
+  { label: 'Case Studies', href: '#projects' },
+  { label: 'Architecture', href: '#system-design' },
+  { label: 'Contact', href: '#contact' },
+];
 
 export default function Contact() {
   const ref = React.useRef(null);
@@ -124,22 +130,22 @@ export default function Contact() {
               <span>Priyanshu</span>
             </div>
             <p className={styles.footerTagline}>
-              Backend Engineer · FinTech · Blockchain · Distributed Systems
+              Backend Engineer · B2B SaaS · Web Architect · Consultant
             </p>
           </div>
 
           <nav className={styles.footerNav}>
             {footerLinks.map((link) => (
               <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
+                key={link.label}
+                href={link.href}
                 className={styles.footerLink}
                 onClick={(e) => {
                   e.preventDefault();
-                  document.getElementById(link.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
+                  document.getElementById(link.href.replace('#', ''))?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                {link}
+                {link.label}
               </a>
             ))}
           </nav>
@@ -147,7 +153,7 @@ export default function Contact() {
 
         <div className={`container ${styles.footerBottom}`}>
           <span>© {new Date().getFullYear()} Priyanshu. Designed &amp; Built with Next.js.</span>
-          <span className={styles.footerStack}>NestJS · Kafka · Redis · Blockchain</span>
+          <span className={styles.footerStack}>React · Next.js · Node.js · Enterprise Architecture</span>
         </div>
       </footer>
     </section>
