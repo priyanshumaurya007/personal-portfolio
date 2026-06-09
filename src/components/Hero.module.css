@@ -20,6 +20,8 @@
 /* ─── Mouse glow ────────────────────────────────── */
 .mouseGlow {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 500px;
   height: 500px;
   border-radius: 50%;
@@ -27,8 +29,7 @@
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 0;
-  transition: left 0.12s ease, top 0.12s ease;
-  will-change: left, top;
+  will-change: transform;
 }
 
 /* ─── Ambient orbs ──────────────────────────────── */

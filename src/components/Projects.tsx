@@ -197,6 +197,15 @@ export default function Projects() {
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
             >
+              {project.link && (
+                <a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={styles.cardOverlayLink} 
+                  aria-label={`Visit ${project.title}`} 
+                />
+              )}
               <div className={styles.cardVisual} style={project.image ? { padding: 0 } : {}}>
                 {project.image ? (
                   <img src={project.image} alt={project.title} className={styles.projectImage} />
@@ -217,9 +226,9 @@ export default function Projects() {
                     <h3 className={styles.projectTitle}>{project.title}</h3>
                   </div>
                   {project.link && (
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.projectLink}>
+                    <div className={styles.projectLink}>
                       <ExternalLink size={20} />
-                    </a>
+                    </div>
                   )}
                 </div>
                 <div className={styles.projectDescription}>

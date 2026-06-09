@@ -137,14 +137,32 @@ function MouseGlow() {
   const glowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let animationFrameId: number;
+    let targetX = 0;
+    let targetY = 0;
+
     const onMove = (e: MouseEvent) => {
-      if (glowRef.current) {
-        glowRef.current.style.left = `${e.clientX}px`;
-        glowRef.current.style.top = `${e.clientY}px`;
+      targetX = e.clientX;
+      targetY = e.clientY;
+      
+      if (!animationFrameId) {
+        animationFrameId = requestAnimationFrame(updatePosition);
       }
     };
-    window.addEventListener('mousemove', onMove);
-    return () => window.removeEventListener('mousemove', onMove);
+
+    const updatePosition = () => {
+      if (glowRef.current) {
+        // GPU accelerated transform instead of top/left layout trashing
+        glowRef.current.style.transform = `translate3d(${targetX}px, ${targetY}px, 0) translate(-50%, -50%)`;
+      }
+      animationFrameId = 0;
+    };
+
+    window.addEventListener('mousemove', onMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', onMove);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    };
   }, []);
 
   return <div ref={glowRef} className={styles.mouseGlow} aria-hidden="true" />;
