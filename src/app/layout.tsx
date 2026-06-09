@@ -1,5 +1,11 @@
 import type { Metadata } from 'next';
+import { Inter, Outfit, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' });
+const outfit = Outfit({ subsets: ['latin'], variable: '--font-display', display: 'swap' });
+const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' });
+
 
 export const metadata: Metadata = {
   title: 'Priyanshu | Backend Engineer & Web Consultant',
@@ -15,15 +21,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    title: 'Priyanshu | Backend Engineer — FinTech & Blockchain',
+    url: 'https://iampriyanshu.in',
+    title: 'Priyanshu | Backend Engineer & Web Consultant',
     description:
-      'Building high-performance financial systems, real-time trading platforms, and blockchain infrastructure at scale.',
-    siteName: 'Priyanshu Portfolio',
+      'Full-Stack Developer and Backend Engineer specializing in high-performance web applications, B2B SaaS platforms, and enterprise-grade distributed architectures.',
+    siteName: 'Priyanshu | Portfolio',
+    images: [
+      {
+        url: '/og-image.jpg', // Recommend user adds this image later
+        width: 1200,
+        height: 630,
+        alt: 'Priyanshu Portfolio',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Priyanshu | Backend Engineer',
-    description: 'Building scalable financial infrastructure at 6000+ trades/min.',
+    title: 'Priyanshu | Backend Engineer & Web Consultant',
+    description: 'Specializing in high-performance web applications and scalable enterprise architecture.',
+    creator: '@priyanshumaurya007',
   },
   robots: {
     index: true,
@@ -43,7 +59,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${outfit.variable} ${jetbrainsMono.variable}`}>
       <body>{children}</body>
     </html>
   );

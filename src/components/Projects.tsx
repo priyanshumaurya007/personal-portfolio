@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import styles from './Projects.module.css';
@@ -206,9 +207,9 @@ export default function Projects() {
                   aria-label={`Visit ${project.title}`} 
                 />
               )}
-              <div className={styles.cardVisual} style={project.image ? { padding: 0 } : {}}>
+              <div className={styles.cardVisual} style={project.image ? { padding: 0, position: 'relative' } : {}}>
                 {project.image ? (
-                  <img src={project.image} alt={project.title} className={styles.projectImage} />
+                  <Image src={project.image} alt={project.title} className={styles.projectImage} fill sizes="(max-width: 768px) 100vw, 50vw" />
                 ) : (
                   <>
                     {project.visual === 'architecture' && <ArchitectureFlow />}
