@@ -19,6 +19,16 @@ const projects = [
   },
   {
     number: '02',
+    title: 'LenssCraft Studios',
+    problem: 'Photography studio needed a premium digital presence to showcase cinematic work and attract high-end wedding and lifestyle clients.',
+    solution: 'Built a stunning, conversion-focused photography platform with a cinematic hero, Ken Burns animations, before/after slider, and an elegant booking flow.',
+    impact: 'Established a premium brand identity online, driving direct booking inquiries and showcasing 500+ photoshoots to a global audience.',
+    tags: ['Next.js', 'TypeScript', 'Tailwind', 'Framer Motion', 'SEO'],
+    visual: 'camera',
+    link: 'https://lensscraft.iampriyanshu.in/',
+  },
+  {
+    number: '03',
     title: 'PrimeNest Realty Platform',
     problem: 'Real estate agency needed a premium digital storefront to showcase properties with fast load times and strong SEO.',
     solution: 'Built a modern, lightning-fast Next.js platform with dynamic property listings and an optimized conversion funnel.',
@@ -28,7 +38,7 @@ const projects = [
     link: 'https://realestate.iampriyanshu.in/',
   },
   {
-    number: '03',
+    number: '04',
     title: 'FinSure Advisors (CA Firm)',
     problem: 'Chartered Accountant firm needed a professional digital presence to build trust with corporate clients and HNIs.',
     solution: 'Developed a sleek, modern corporate website outlining service offerings with clear lead-capture mechanisms.',
@@ -38,7 +48,7 @@ const projects = [
     link: 'https://advisory.iampriyanshu.in',
   },
   {
-    number: '04',
+    number: '05',
     title: 'Crypto Exchange Architecture',
     problem: 'High latency and database bottlenecks during peak trading periods were causing dropped requests.',
     solution: 'Implemented Redis caching, connection pooling, and optimized queries to relieve database load.',
@@ -47,7 +57,7 @@ const projects = [
     visual: 'architecture',
   },
   {
-    number: '05',
+    number: '06',
     title: 'Real-Time Trading Engine',
     problem: 'Order processing could not keep up with market volatility and high-frequency traders.',
     solution: 'Built an event-driven architecture using Kafka for asynchronous, non-blocking order processing.',
@@ -97,6 +107,42 @@ function TradingVisual() {
           <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
         </svg>
         <span>Matching</span>
+      </div>
+    </div>
+  );
+}
+
+// ─── Visual: Photography / LenssCraft ───────────────────────────────
+function CameraVisual() {
+  return (
+    <div className={styles.cameraWrap}>
+      {/* Aperture ring */}
+      <svg viewBox="0 0 200 200" width="140" className={styles.cameraSvg}>
+        <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(212,175,100,0.15)" strokeWidth="2" />
+        <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(212,175,100,0.3)" strokeWidth="1.5" />
+        <circle cx="100" cy="100" r="40" fill="rgba(212,175,100,0.08)" stroke="rgba(212,175,100,0.6)" strokeWidth="2" />
+        {/* Aperture blades */}
+        {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => (
+          <line
+            key={i}
+            x1="100" y1="100"
+            x2={100 + 55 * Math.cos((angle * Math.PI) / 180)}
+            y2={100 + 55 * Math.sin((angle * Math.PI) / 180)}
+            stroke="rgba(212,175,100,0.35)" strokeWidth="1.5"
+          />
+        ))}
+        {/* Rotating pulse ring */}
+        <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(212,175,100,0.4)" strokeWidth="1" strokeDasharray="8 4">
+          <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="8s" repeatCount="indefinite" />
+        </circle>
+        {/* Center lens */}
+        <circle cx="100" cy="100" r="18" fill="rgba(212,175,100,0.12)" stroke="rgba(212,175,100,0.9)" strokeWidth="2" />
+        <circle cx="100" cy="100" r="8" fill="rgba(212,175,100,0.6)" />
+      </svg>
+      <div className={styles.cameraLabels}>
+        {['Wedding', 'Lifestyle', 'Commercial'].map((l) => (
+          <span key={l} className={styles.cameraLabel}>{l}</span>
+        ))}
       </div>
     </div>
   );
@@ -216,6 +262,7 @@ export default function Projects() {
                     {project.visual === 'trading'      && <TradingVisual />}
                     {project.visual === 'blockchain'   && <BlockchainVisual />}
                     {project.visual === 'dashboard'    && <DashboardVisual />}
+                    {project.visual === 'camera'       && <CameraVisual />}
                   </>
                 )}
               </div>
