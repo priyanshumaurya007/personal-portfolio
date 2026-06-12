@@ -24,7 +24,7 @@ const projects = [
     solution: 'Built a stunning, conversion-focused photography platform with a cinematic hero, Ken Burns animations, before/after slider, and an elegant booking flow.',
     impact: 'Established a premium brand identity online, driving direct booking inquiries and showcasing 500+ photoshoots to a global audience.',
     tags: ['Next.js', 'TypeScript', 'Tailwind', 'Framer Motion', 'SEO'],
-    visual: 'camera',
+    image: '/lensscraft-screenshot.png',
     link: 'https://lensscraft.iampriyanshu.in/',
   },
   {
